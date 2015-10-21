@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "ReactAppSkeleton5"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-ReactAppSkeleton5-eddafff4-faf1-48f2-98e8-a68c94fe693c;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
