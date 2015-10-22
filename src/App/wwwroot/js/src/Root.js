@@ -18,7 +18,7 @@ export default class Root extends Component {
         <Router history={history}>
           <Route component={App}>
             <Route path='/'        component={Lists} onEnter={hooks.indexLists(store)} />
-            <Route path='/:listId' component={Lists} onEnter={hooks.indexLists(store)} />
+            <Route path='/list/:listId' component={Lists} onEnter={hooks.indexLists(store)} />
             <Route path='*' component={NotFound} />
           </Route>
         </Router>

@@ -33,7 +33,7 @@ class ListsContainer extends Component {
     if(id === -1) {
       history.pushState({}, '/');
     } else {
-      history.pushState({}, `/${id}`)
+      history.pushState({}, `/list/${id}`)
     }
   }
 
