@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {  Input } from 'react-bootstrap';
 
-class TodoEntry extends Component {
+export default class TodoEntry extends Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
     done: PropTypes.bool.isRequired,
@@ -26,9 +26,9 @@ class TodoEntry extends Component {
     const checkbox = <input id={text} type="checkbox" checked={done} onChange={this.changed('done')} />;
     if(done) {
       return (
-        <div>
+        <div style={{padding: '5px 12px'}}>
           {checkbox}
-          <label htmlFor={text}>{text}</label>
+          <label style={{ marginLeft: 25, textDecoration: 'line-through'}} htmlFor={text}>{text}</label>
         </div>
       )
     } else {
