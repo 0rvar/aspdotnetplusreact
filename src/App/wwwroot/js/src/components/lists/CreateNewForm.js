@@ -16,8 +16,6 @@ export default class CreateNewForm extends Component {
     this.submit = this.submit.bind(this);
   }
 
-
-
   handleChange(e) {
     this.setState({
       title: e.target.value

@@ -3,7 +3,7 @@ import { Tabs, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import history from '../../history';
-import CreateNewForm from './CreateNewForm';
+import CreateNewForm from '../../components/lists/CreateNewForm';
 import TodoList from './TodoList';
 import { action_create_list } from '../../actions';
 
