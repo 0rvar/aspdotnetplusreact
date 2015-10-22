@@ -7,12 +7,13 @@ namespace App.Models
 {
     public class TodoList
     {
-			public string Title;
-			public List<Entry> Entries; 
+			public string title;
+			public List<Entry> entries; 
     }
 		
 		public class Entry
 		{
-			public string Text;
+			public bool done;
+			public string text;
 		}
 }

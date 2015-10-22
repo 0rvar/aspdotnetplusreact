@@ -1,16 +1,15 @@
+import * as hooks from './actions/hooks';
+
 import React, { Component, PropTypes } from 'react';
-import { createHistory } from 'history';
 import { Provider} from 'react-redux';
 import { Router, Route } from 'react-router';
 
 import configureStore from './store/configureStore';
+import history from './history';
 import App from './containers/App';
+import Lists from './containers/lists/Lists';
 
 const store = configureStore();
-const history = createHistory();
-
-// TODO remove
-const hooks = { editPost: () => console.log('editPost hook') };
 
 export default class Root extends Component {
   render() {
@@ -18,9 +17,8 @@ export default class Root extends Component {
       <Provider store={store}>
         <Router history={history}>
           <Route component={App}>
-            <Route path='/post/:id/edit' name='editPost' component={Draft}
-                   onEnter={hooks.editPost(store)}/>
-            <Route path='/post/new' component={Draft}/>
+            <Route path='/'        component={Lists} onEnter={hooks.indexLists(store)} />
+            <Route path='/:listId' component={Lists} onEnter={hooks.indexLists(store)} />
             <Route path='*' component={NotFound} />
           </Route>
         </Router>

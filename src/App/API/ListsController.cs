@@ -12,13 +12,13 @@ namespace ReactAppSkeleton5.API
 	[Route("api/lists")]
 	public class ListsController : Controller
 	{
-		static IEnumerable<TodoList> lists = new TodoList[] {
+		static List<TodoList> lists = new List<TodoList> {
 			new TodoList() {
-				Title = "List 1",
-				Entries = new List<Entry> {
-					new Entry() { Text = "Do A" },
-					new Entry() { Text = "Do B" },
-					new Entry() { Text = "Maybe do C" }
+				title = "Sample list",
+				entries = new List<Entry> {
+					new Entry() { text = "Do A" },
+					new Entry() { text = "Do B" },
+					new Entry() { text = "Maybe do C" }
 				}
 			}
 		};
@@ -39,8 +39,28 @@ namespace ReactAppSkeleton5.API
 
 		// POST api/lists
 		[HttpPost]
-		public void Post([FromBody]string value)
+		public object Post([FromBody]TitleContainer titleContainer)
 		{
+			var list = new TodoList()
+			{
+				title = titleContainer.title,
+				entries = new List<Entry>
+				{
+					new Entry() { text = "Perform Arbitrary Task" }
+				}
+			};
+			lists.Add(list);
+
+			return new {
+				lists = lists,
+				index = lists.Count - 1
+			};
+		}
+
+		[HttpPost("{listIndex}/{entryIndex}")]
+		public void UpdateEntry(int listIndex, int entryIndex, [FromBody]Entry entry)
+		{
+			lists[listIndex].entries[entryIndex] = entry;
 		}
 
 		// PUT api/lists/5
@@ -54,5 +74,10 @@ namespace ReactAppSkeleton5.API
 		public void Delete(int id)
 		{
 		}
+	}
+
+	public class TitleContainer
+	{
+		public string title;
 	}
 }
