@@ -4,6 +4,13 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
+        "ASPNET_ENV": "Development"
+      }
+    },
+    "IIS Express + Hot Reloading": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
         "ASPNET_ENV": "HotDevelopment"
       }
     }
